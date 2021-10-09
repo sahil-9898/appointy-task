@@ -42,3 +42,15 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode(result) // returns a Map containing document
 }
+func GetAllPosts(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var id = strings.Split(r.URL.Path[1:], "/")[0]
+	filterposts, err := PostCollection.Find(context.TODO(), bson.M{"user": id})
+	if err != nil {
+		log.Fatal(err)
+	}
+	var result []bson.M
+	if err = filterposts.All(context.TODO(), &result); err != nil {
+		log.Fatal(err)
+	}
+}
