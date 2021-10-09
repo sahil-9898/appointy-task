@@ -7,8 +7,7 @@ import (
 
 func NewRouter() http.Handler {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", controllers.Homepage)
 	mux.HandleFunc("/users", controllers.CreateUser)
-	mux.HandleFunc("/users/:id", controllers.GetUser)
+	mux.HandleFunc("/users/(?P<id>[a-zA-Z]+)", controllers.GetUser)
 	return mux
 }

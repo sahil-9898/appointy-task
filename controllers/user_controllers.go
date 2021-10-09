@@ -36,7 +36,6 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(insertResult.InsertedID)
 }
 func GetUser(w http.ResponseWriter, r *http.Request) {
-
 	w.Header().Set("Content-Type", "application/json")
 	var id = strings.Split(r.URL.Path[1:], "/")[0]
 	var result primitive.M //  an unordered representation of a BSON document which is a Map
@@ -44,6 +43,6 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
+	fmt.Println("dfjk")
 	json.NewEncoder(w).Encode(result) // returns a Map containing document
-
 }

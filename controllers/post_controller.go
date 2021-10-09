@@ -41,5 +41,4 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 	json.NewEncoder(w).Encode(result) // returns a Map containing document
-
 }
