@@ -14,7 +14,7 @@ func ConnectDB() *mongo.Client {
 	/*
 	   Connect to my cluster
 	*/
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://sahil:%405596Sahil@cluster0.tsjsz.mongodb.net/appointy?retryWrites=true&w=majority"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("dburl"))
 	if err != nil {
 		log.Fatal(err)
 	}
